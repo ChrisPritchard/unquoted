@@ -4,9 +4,9 @@ A simple project to generate a valid service binary for windows, used when explo
 
 E.g. if the service is running `c:\program files\ivpn service\ivpn service.exe` and you can drop a binary in `c:\program files\ivpn service\` (or `c:\program files\` but that's rarer) named `ivpn.exe`, then when the service starts it will run your binary rather than the target.
 
-Particularly useful if you **a)** can restart the service yourself, or **b)** have the right to restart the machine when its marked as autostart.
+Particularly useful if you **a)** can restart the service yourself, or **b)** have the right to restart the machine when the service is marked as autostart.
 
-The command it runs is inside [src/Service1.cs]. Change before compiling.
+The command it runs is inside [src/Service1.cs](src/Service1.cs). Change before compiling.
 
 ## Building
 

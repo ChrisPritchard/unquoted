@@ -6,7 +6,7 @@ E.g. if the service is running `c:\program files\ivpn service\ivpn service.exe` 
 
 Particularly useful if you **a)** can restart the service yourself, or **b)** have the right to restart the machine when the service is marked as autostart.
 
-The command it runs is inside [src/Service1.cs](src/Service1.cs). Change before compiling.
+The service will run whatever it finds in a file named "torun.txt" placed next to it. E.g. if you wanted it to run `c:\windows\temp\c.exe` put that in torun.txt next to the service binary. This supports running with arguments too, e.g. `c:\windows\temp\c.exe 10.10.3.98:3232`.
 
 ## Building
 

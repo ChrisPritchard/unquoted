@@ -18,12 +18,22 @@ namespace unquoted
             if (!File.Exists(to_run_file))
                 return;
                 
-            var command = File.ReadAllText(to_run_file);
+            var input = File.ReadAllLines(to_run_file);
+            if (input.Length == 0) {
+                return;
+            }
+            
+            var command = input[0].Trim();
             var file_end = command.IndexOf(" ");
-            if (file_end == -1) {
-                Process.Start(command);
-            } else {
-                Process.Start(command.Substring(0, file_end), command.Substring(file_end + 1));
+
+            try {
+                if (file_end == -1) {
+                    Process.Start(command);
+                } else {
+                    Process.Start(command.Substring(0, file_end), command.Substring(file_end + 1));
+                }
+            } catch (Exception ex) {
+                throw new Exception($"Failed to invoke {command}", ex);
             }
         }
     }
